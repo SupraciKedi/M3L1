@@ -27,5 +27,37 @@ def cevre(ctx):
     time.sleep(1)
     await ctx.send(f'keşke her kirlilik boyayla gitse ama her boya kirlilikle gidiyor :(') '<a href="/rastgele_cevre">Çevre kirliliğiyle alakalı resimler!</a>
 
+@app.route("/sozluk")
+def sozluk():    
+    meme_dict = {
+            "Cringe": "Garip ya da utandırıcı bir şey",
+            "Lol": "Komik bir şeye verilen cevap",
+            "Rofl": "- bir şakaya karşılık cevap",
+            "Sheesh": "- onaylamamak",
+            "Creepy": "- korkunç",
+            "Aggro": "- agresifleşmek/sinirlenmek",
+            "Bot": "-Robot kelimesinin kısaltmasıdır. Genellikle yazılımlarda otomatik görevleri yerine getiren programlara atıfta bulunmak için kullanılır.",
+            "Chat": "-Sohbet etmek anlamına gelir. İnternet üzerinde yazılı veya sesli iletişimde bulunmak için kullanılan bir terimdir.",
+            "Client": "-Müşteri anlamına gelir. Genellikle bir ağ üzerinde sunucuyla iletişim kurmak için kullanılan bir terimdir.",
+            "Server": "-Sunucu anlamına gelir. Bir ağ üzerinde istemcilerin hizmet aldığı veya veri depoladığı bilgisayar sistemidir.",
+            "Message": "-Mesaj anlamına gelir. İnternet üzerinde iletişim kurarken bir kişiden diğerine gönderilen metin, ses veya görüntü içeriği.",
+            "Event": "-Olay veya etkinlik anlamına gelir. Programlama bağlamında, bir uygulamanın belirli bir koşula veya kullanıcı etkileşimine yanıt olarak gerçekleştirdiği işlem.",
+            "Content": "-İçerik anlamına gelir. İnternet veya yazılım bağlamında, bir dosya, belge veya iletişimdeki bilgiyi ifade eder.",
+            "Password": "-Parola anlamına gelir. Genellikle kullanıcıların hesaplarına erişmek için girdikleri gizli karakter dizisidir.",
+            "Ban": "-Yasaklama anlamına gelir. Bir kullanıcının belirli bir platformdan veya hizmetten geçici veya kalıcı olarak uzaklaştırılması.",
+            "Generate": "-Oluşturmak veya üretmek anlamına gelir. Bilgisayar programlamasında, verileri veya değerleri belirli bir algoritmayla oluşturma işlemi.",
+            "Random": "-Rastgele anlamına gelir. Bilgisayar biliminde, herhangi bir düzen veya önceden belirlenmiş bir desen olmaksızın seçilen veya üretilen veri veya değerler için kullanılır."
+        }
+
+    word = input("Anlamadığınız bir kelime yazın (hepsini büyük harflerle yazın!): ")
+
+    if word in meme_dict.keys():
+        # Kelime eşleşiyorsa ne yapmalıyız?
+        print(meme_dict[word]) 
+        #gerçek
+
+    else:
+        # Kelime eşleşmiyorsa ne yapmalıyız?
+        print("maalesef kelimeniz sözlükte yok başka bir şey deneyebilirsiniz!")'<a href="/rastgele_kelime">Rastgele bir kelimeyii görüntüle!</a>
 
 app.run(debug=True)
