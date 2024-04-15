@@ -1,0 +1,31 @@
+from flask import Flask
+
+app = Flask(__name__)
+facts_list = ["Teknolojik bağımlılıktan mustarip olan çoğu kişi, kendilerini şebeke kapsama alanı dışında bulduklarında veya cihazlarını kullanamadıkları zaman yoğun stres yaşarlar.2018 yılında yapılan bir araştırmaya göre 18-34 yaş arası kişilerin %50'den fazlası kendilerini akıllı telefonlarına bağımlı olarak görüyor.Teknolojik bağımlılık çalışması, modern bilimsel araştırmanın en ilgili alanlarından biridir.2019'da yapılan bir araştırmaya göre, insanların %60'ından fazlası akıllı telefonlarındaki iş mesajlarına işten ayrıldıktan sonraki 15 dakika içinde yanıt veriyor.Teknolojik bağımlılıkla mücadele etmenin bir yolu, zevk veren ve ruh halini iyileştiren faaliyetler aramaktır.Elon Musk, sosyal ağların içeriği görüntülemek için mümkün olduğunca fazla zaman harcamamız için bizi platformun içinde tutmak üzere tasarlandığını iddia ediyor.Elon Musk ayrıca sosyal ağların düzenlenmesini ve kullanıcıların kişisel verilerinin korunmasını savunmaktadır. Sosyal ağların hakkımızda büyük miktarda bilgi topladığını ve bu bilgilerin daha sonra düşüncelerimizi ve davranışlarımızı manipüle etmek için kullanılabileceğini iddia ediyor.Sosyal ağların olumlu ve olumsuz yanları vardır ve bu platformları kullanırken her ikisinin de farkında olmalıyız."]
+
+@app.route("/")
+def hello_world():
+    return '<h1>Hello, World!</h1>'
+
+@app.route("/rastgele_gercek")
+def facts_list():
+    return f'<p>{random.choice(facts_list)}</p>'<a href="/rastgele_gercek">Rastgele bir gerçeği görüntüle!</a>
+
+@app.route("/cevre_kirli")
+def cevre(ctx):
+    # Rastgele bir dosya seçmek için dosya isimlerini bir listeye ekleyin
+    file_list = ["Ders\ders5\cevre.jpeg", "Ders\ders5\cevre1.jpeg", "Ders\ders5\cevre2.jpeg"]
+    # Listeden rastgele bir dosya seçin
+    selected_file = random.choice(file_list)
+    with open(selected_file, 'rb') as f:
+        picture = discord.File(f)
+    await ctx.send(file=picture)
+    time.sleep(1)
+    await ctx.send(f'BU gidişle dünyamızda nefes almamız uzayda nefes almaktan daha zor olacak :(')
+    time.sleep(1)
+    await ctx.send(f'Kendi geleceğimizi kendimiz bitiriyoruz :(')
+    time.sleep(1)
+    await ctx.send(f'keşke her kirlilik boyayla gitse ama her boya kirlilikle gidiyor :(') '<a href="/rastgele_cevre">Çevre kirliliğiyle alakalı resimler!</a>
+
+
+app.run(debug=True)
